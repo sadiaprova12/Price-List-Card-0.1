@@ -12,7 +12,7 @@ const Navbar = () => {
         {
             id: 1,
             name: 'Home',
-            path: '/'
+            path: '/home'
         },
         {
             id: 2,
@@ -36,7 +36,7 @@ const Navbar = () => {
         }
     ];
     return (
-        <nav>
+        <nav className='bg-purple-400 px-4'>
              <div onClick={() => setOpen(!open)} className='md:hidden'>
                 <span>
                     {
@@ -46,7 +46,7 @@ const Navbar = () => {
                     }
                 </span>
             </div>
-            <ul className='md:flex'>
+            <ul className={`md:flex absolute md:static duration-500 pl-8 py-2 bg-purple-400 ${open ? 'top-6' : '-top-36'}`}>
                 {
                     // eslint-disable-next-line react/jsx-key
                     routes.map(route => <Link 
