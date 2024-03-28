@@ -5,7 +5,7 @@ import React from 'react';
 // eslint-disable-next-line react/prop-types, no-unused-vars
 const Link = ({route}) => {
     return (
-        <li className='mr-12'>
+        <li className='mr-12 hover:bg-purple-600'>
             <a href={route.path}>{route.name}</a>
         </li>
     );
