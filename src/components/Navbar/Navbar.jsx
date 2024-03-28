@@ -1,10 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import { list } from 'postcss';
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-
+import React,{useState} from 'react';
+import Link from './Link/Link';
+import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 const Navbar = () => {
 
+    // eslint-disable-next-line no-undef
+    const [open, setOpen] = useState(false);
     const routes = [
         {
             id: 1,
@@ -34,10 +37,22 @@ const Navbar = () => {
     ];
     return (
         <nav>
-            <ul>
+             <div onClick={() => setOpen(!open)} className='md:hidden'>
+                <span>
+                    {
+                        open === true ?
+                            <XMarkIcon className="h-6 w-6 text-purple-500" />
+                            : <Bars3Icon className="h-6 w-6 text-purple-500" />
+                    }
+                </span>
+            </div>
+            <ul className='md:flex'>
                 {
                     // eslint-disable-next-line react/jsx-key
-                    routes.map(route => <li>{route.name}</li>)
+                    routes.map(route => <Link 
+                        key={route.id}
+                        route={route}
+                        ></Link>)
                 }
             </ul>     
         </nav>
